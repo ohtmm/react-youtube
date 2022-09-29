@@ -3,11 +3,11 @@ import VideoItem from '../video_item/video_item';
 import styles from './video_list.module.css';
 
 
-const VideoList = ({ videos }) => (
+const VideoList = ({ videos, onSelect, display }) => (
         <ul className={styles.videos}>
             {videos.map((video)=>{
                 return(
-                    <VideoItem key={video.id} video={video} />
+                    <VideoItem onSelect={onSelect} key={video.id} video={video} display={display}/>
                 )
             })}
         </ul>
