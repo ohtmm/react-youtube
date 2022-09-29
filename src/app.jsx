@@ -1,11 +1,25 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import './app.css';
+import styles from './app.module.css';
+import SearchHeader from './components/search_header/search_header';
 import VideoList from './components/video_list/video_list';
 
 function App() {
   // 비디오 api 받아오기
 const [videos, setVideos] = useState([]);
+const search = (inputVal) => {
+  const requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  
+  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${inputVal}&type=video&key=AIzaSyAu11CIY1iHbO21XJGdyERnRNItXwDYEwc`, requestOptions)
+    .then(response => response.json())
+    .then(result => result.items.map((item)=>({... item, id : item.id.videoId})))
+    .then(items => setVideos(items))
+    .catch(error => console.log('error', error));
+}
+
 useEffect(()=>{
   const requestOptions = {
     method: 'GET',
@@ -19,10 +33,10 @@ useEffect(()=>{
 }, [])
 
   return (
-    <>
-    <h2>youtube</h2>
+    <div className={styles.app}>
+    <SearchHeader onSearch={search} />
     <VideoList videos={videos}/>
-    </>
+    </div>
   )
    ;
 }
