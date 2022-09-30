@@ -14,10 +14,18 @@ const search = (inputVal) => {
   youtube
   .search(inputVal)
   .then((items)=>setVideos(items));
+  setSelectedVideo((prev)=>!prev);
 }
 
 const onSelect = (video) =>{
   setSelectedVideo(video);
+}
+
+const goHome = () => {
+  setSelectedVideo(null);
+  youtube
+  .mostPopular()
+  .then(items => setVideos(items));
 }
 
 useEffect(()=>{
@@ -28,10 +36,11 @@ useEffect(()=>{
 
   return (
     <div className={styles.app}>
-    <SearchHeader onSearch={search} />
+    <SearchHeader onSearch={search} goHome={goHome}/>
     <section className={styles.content}>
-      {selectedVideo && <div className={styles.detail}>
-     <VideoDetail selectedVideo={selectedVideo}/> 
+      {selectedVideo && 
+      <div className={styles.detail}>
+         <VideoDetail selectedVideo={selectedVideo}/> 
       </div>}
       <div className={styles.list}>
     <VideoList onSelect={onSelect} videos={videos} display={selectedVideo ? 'list' : 'grid'}/>
