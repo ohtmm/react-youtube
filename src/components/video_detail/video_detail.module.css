@@ -1,0 +1,29 @@
+
+.detail{
+    margin-top: 2.8em;
+    margin-left: 2em;
+}
+
+.tit{
+    margin: 1em 0 .4em 0;
+    color: #fff;
+}
+
+.channel{
+    margin: 0;
+    color: #aaa;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.desc {
+    width: 90%;
+    margin-top: 2em;
+    padding-top: 2em;
+    font-size: 1rem;
+    font-family: "Roboto","Arial",sans-serif;
+    line-height: 1.4;
+    color: #fff;
+    white-space: pre-wrap;
+    border-top: 1px solid #3c3c3c;
+}
