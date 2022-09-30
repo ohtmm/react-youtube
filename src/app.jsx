@@ -11,10 +11,10 @@ const [videos, setVideos] = useState([]);
 const [selectedVideo, setSelectedVideo] = useState(null);
 
 const search = (inputVal) => {
+  setSelectedVideo(null);
   youtube
   .search(inputVal)
   .then((items)=>setVideos(items));
-  setSelectedVideo((prev)=>!prev);
 }
 
 const onSelect = (video) =>{
@@ -32,7 +32,7 @@ useEffect(()=>{
   youtube
   .mostPopular()
   .then(items => setVideos(items));
-}, [])
+}, [youtube])
 
   return (
     <div className={styles.app}>
