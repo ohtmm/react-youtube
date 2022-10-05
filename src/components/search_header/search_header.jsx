@@ -21,12 +21,12 @@ const SearchHeader = ({ onSearch , goHome}) => {
     return (
     <header className={styles.header}>
     <div className={styles.logo} onClick={goHome}>
-        <img className={styles.img} src="./images/logo.png" alt='youtube' /> 
+        <img className={styles.img} src="https://ohtmm.github.io/react-youtube/images/logo.png" alt='youtube' /> 
         <h2 className={styles.title}>Youngtube</h2>
     </div>
     <input ref={inputRef} className={styles.input} type='search' placeholder='search...' onKeyDown={onKeyDown}/>
     <button className={styles.button} type='submit' onClick={onClick}>
-        <img className={styles.buttonImg} src='./images/search.png' alt='search-icon'/>
+        <img className={styles.buttonImg} src="https://ohtmm.github.io/react-youtube/images/search.png" alt='search-icon'/>
     </button>
     
     </header>
