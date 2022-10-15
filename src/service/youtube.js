@@ -13,7 +13,7 @@ class Youtube {
       params: {
         part: 'snippet',
         chart: 'mostPopular',
-        maxResults: 25,
+        maxResults: 24,
       },
     });
     return response.data.items;
@@ -30,7 +30,7 @@ class Youtube {
       params: {
         part: 'snippet',
         type: 'video',
-        maxResults: 25,
+        maxResults: 24,
         q: query,
       },
     });

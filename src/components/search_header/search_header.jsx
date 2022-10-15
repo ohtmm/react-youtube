@@ -1,11 +1,14 @@
 import React from 'react';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../button/button';
 import styles from './search_header.module.css'
 
-const SearchHeader = ({ onSearch , goHome}) => {
+const SearchHeader = ({ onLogout, onSearch , goHome}) => {
     const inputRef = useRef();
-    const handleSubmit = () => {
-        const inputVal = inputRef.current.value;
+    const navigate = useNavigate();
+    const handleSubmit = () => {    
+    const inputVal = inputRef.current.value;
         onSearch(inputVal);
         
     };
@@ -17,6 +20,7 @@ const SearchHeader = ({ onSearch , goHome}) => {
     const onClick = () => {
         handleSubmit();
     };
+
  
     return (
     <header className={styles.header}>
@@ -28,7 +32,9 @@ const SearchHeader = ({ onSearch , goHome}) => {
     <button className={styles.button} type='submit' onClick={onClick}>
         <img className={styles.buttonImg} src="https://ohtmm.github.io/react-youtube/images/search.png" alt='search-icon'/>
     </button>
-    
+    {onLogout && 
+    <button className={styles.logout} onClick={onLogout}>Logout</button>
+    }
     </header>
         
     );

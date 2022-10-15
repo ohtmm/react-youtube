@@ -3,6 +3,7 @@
     align-items: center;
     width: 100%;
     height: 6em;
+    padding-right: 2em;
     background-color: #222;
     border-bottom: 1px solid #717171;
 }
@@ -38,9 +39,8 @@
     border: none;
     outline: none;
     padding: .8em;
-
     margin-left: 1em;
-    margin-right: 2em;
+    margin-right: 1em;
     height: 3.5em;
     background-color: #2F2F2F;
     border-radius: 2px;
@@ -50,3 +50,23 @@
 .buttonImg{
     height: 100%;
 }
+
+.logout{
+        border: none;
+        outline: none;
+        background: none;
+        flex-basis: 12%;
+        width: 8em;
+        padding: 0.8em 0;
+        font-size: 16px;
+        font-weight: 500;
+        color:#fff;
+        background-color: #f44033;
+        border-radius: 0.15em;
+        cursor: pointer;
+    }
+    
+    .logout:hover{
+        color: #222;
+        background-color: #fff;
+    }
